@@ -1,5 +1,5 @@
 
-public class Conta {
+public abstract class Conta {
     private double saldo;
     private int agencia;
     private int numero;
@@ -14,21 +14,17 @@ public class Conta {
         this.saldo += valor;
     }
 
-    public boolean saca(double valor) {
+    public void saca(double valor) {
         if (this.saldo >= valor) {
             this.saldo -= valor;
-            return true;
         }
-        return false;
     }
 
-    public boolean transfere(double valor, Conta destino) {
+    public void transfere(double valor, Conta destino) {
         if (this.saldo >= valor) {
             this.saldo -= valor;
             destino.saldo += valor;
-            return true;
         }
-        return false;
     }
 
     public double getSaldo() {
